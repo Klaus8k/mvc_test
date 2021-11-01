@@ -1,11 +1,19 @@
 import model, view
 
-def loop_start():
-    start = view.ui_start()
-    while start != 0:
-        name = view.your_name()
-        view.res(name, model.len_name(name))
-        start = view.ui_start()
+def order_loop():
+    response = view.what_action()
+    while response != '0':
 
-loop_start()
+        if response == '1': # buy
+            order = model.Order(view.ticker())
+            order.buy(int(view.price()), 1)
+        elif response == '2':
+            view.print_info(str(order))
+
+        response = view.what_action()
+
+
+
+
+order_loop()
 

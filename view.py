@@ -1,13 +1,17 @@
-def ui_start():
-    start = input(f'Вперед?')
-    if start == 'y':
-        return 1
-    else: return 0
+def what_action():
+    res = input('What we mast to do?\n'
+                    '1 - byu\n'
+                    '2 - show all\n'
+                    '0 - exit\n')
+    return res
 
-def your_name():
-    name = input('Как тебя зовут?')
-    return name
+def ticker():
+    ticker = input('What whe ticker?:\n')
+    return ticker
 
-def res(name, count_name):
-    print('Тебя зовут: ', name, ', в твоем имени: ', count_name, ' букв')
+def price():
+    price = input('Price?:\n')
+    return price
 
+def print_info(info: str):
+    print(info)
