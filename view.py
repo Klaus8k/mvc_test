@@ -12,13 +12,14 @@ def in_ticker():
     return ticker
 
 
-def in_price():
+def price():
     price = input('Price?:\n')
     return price
 
 
-def print_info(info):
-    print(info)
+def print_all(items):
+    for item in items:
+        print(item)
 
 def order_choise():
     o_choise = input('Select orders number:')

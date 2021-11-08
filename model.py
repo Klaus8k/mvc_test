@@ -27,3 +27,7 @@ class Order:
             self.sell(price_out, self.lots)
         else:
             self.buy(price_out, self.lots)
+
+
+def select_order(item):
+    return Order.items[item-1]
