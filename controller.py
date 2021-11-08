@@ -14,8 +14,8 @@ def order_loop():
         elif response == '3':
             print_all()
             close_order_num = view.order_choise()
-            print(model.Order.items[:])
-            print_all()
+
+            print(model.Order.items[close_order_num-1])
             # В этом условии надо принимать номер ордера и обращаясь к модели его закрывать.
 
 
