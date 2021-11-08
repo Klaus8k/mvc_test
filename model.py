@@ -1,4 +1,7 @@
 class Order:
+    '''Класс сделки. Имя бумаги, цена покупки отражается в балансе.
+
+    При закрытии продает бумагу с ценой закрытия'''
     items = []
 
     def __init__(self, name: str):
@@ -7,7 +10,8 @@ class Order:
         Order.items.append(self)
 
     def __str__(self):
-        return f'{self.items.index(self)+1}. Ticker: {self.name}, Balance: {self.balance}'
+        return '{0}. Ticker: {1}, Balance: {2}'.\
+            format(self.items.index(self)+1,self.name,self.balance)
 
     def buy(self, price_in, lots):
         self.balance = self.balance - price_in * lots
