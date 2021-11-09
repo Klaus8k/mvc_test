@@ -1,34 +1,37 @@
-def what_action():
-    res = input('What we mast to do?\n'
-                '1 - new order\n'
-                '2 - show all\n'
-                '3 - close order\n'
+def main_action():
+    responce = input('What we mast to do?\n'
+                '1 - new\n'
+                '2 - select order\n'
+                '3 - show all\n'
                 '0 - exit\n')
-    return res
+    return responce
+
+def choose_order():
+    o_choise = input('2 - select order number:\n')
+
+    return int(o_choise) - 1
 
 def buy_or_sell():
-    answer = input('1 - Buy\n2 - Sell')
-    if answer == '1':
-        return '1'
-    else: return '0'
+    responce = input('1 - Buy\n'
+                     '2 - Sell\n'
+                     '0 - Close order!\n')
+    return responce
 
 def ticker():
     ticker = input('Ticker?:\n')
     return ticker
 
-
 def price_lots():
     price = int(input('Price?:\n'))
-    lots = int(input('Lots?:'))
+    lots = int(input('Lots?:\n'))
     return [price, lots]
 
+def show_all(items:list):
+    for i in items:
+        print(i)
 
-def print_all(items):
-    for item in items:
-        print(item)
+def show_current(item):
+    print(item)
 
-def order_choise():
-    o_choise = input('Select orders number:')
-    return int(o_choise)
 
 
