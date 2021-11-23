@@ -10,31 +10,27 @@ class Order():
         self.ticker = ticker
         Order.id += 1
         self.id = Order.id
-        self.param = {'ticker': self.ticker,
-                      'mid': 0,
-                      'lots_in': [],
-                      'p_in': [],
-                      'long': True}
+        self.price = []
+        self.lots = []
+        self.long = True
+
 
     def __str__(self):
-        return f'{self.id} --- {str(self.param)}'
+        return f'{self.id} --- {self.ticker} - {self.lots} for {self.price}'
 
     def buy(self):
         p_l = view.price_lots()
-        self.param['p_in'].append(p_l[0])
-        self.param['lots_in'].append(p_l[1])
+        self.price.append(p_l[0])
+        self.lots.append(p_l[1])
         # mid = model.medium(order.param['p_in'], order.param['lots_in'])
 
     def sell(self):
         p_l = view.price_lots()
-        self.param['p_in'].append(-p_l[0])
-        self.param['lots_in'].append(-p_l[1])
+        self.price.append(-p_l[0])
+        self.lots.append(-p_l[1])
 
-    def close(
-            self):  # Разобраться с закрытием, возможно метод для цены и лотов, или через модель. так как там расчеты
-        # нужны.
-        if self.param['long']:
-            self.sell()
+    def close(self):
+        pass
 
 
 if __name__ == '__main__':
@@ -51,7 +47,7 @@ if __name__ == '__main__':
                 order.buy()
             else:
                 order.sell()
-                order.param['long'] = False
+                order.long = False
         elif responce == '2':
             view.show_all(all_orders)
             order_number = view.choose_order()
