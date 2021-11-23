@@ -16,7 +16,7 @@ def choose_order():
 def buy_or_sell():
     responce = input('1 - Buy\n'
                      '2 - Sell\n'
-                     '0 - Close order!\n')
+                     '0 - Close order!\n')# Пока не реализовано
     return responce
 
 

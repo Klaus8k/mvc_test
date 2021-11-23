@@ -12,33 +12,35 @@ class Order():
         self.id = Order.id
         self.price = []
         self.lots = []
+        self.sum_order = [self.price, self.lots]
         self.long = True
 
 
     def __str__(self):
-        return f'{self.id} --- {self.ticker} - {self.lots} for {self.price}'
+        return f'{self.id}. {self.ticker}. lots: {sum(self.lots)} \
+        for {self.price}\nmid = {self.sum_order}'
 
     def buy(self):
         p_l = view.price_lots()
         self.price.append(p_l[0])
         self.lots.append(p_l[1])
-        # mid = model.medium(order.param['p_in'], order.param['lots_in'])
+        # Посчитать на основе списка списков sum_order
 
     def sell(self):
         p_l = view.price_lots()
         self.price.append(-p_l[0])
         self.lots.append(-p_l[1])
 
-    def close(self):
+    def mid(self):
         pass
 
 
 if __name__ == '__main__':
     responce = view.main_action()
     a = Order('GZP')
-    b = Order('APL')
-    c = Order('YAN')
-    all_orders = [a, b, c]
+    a.price.append(10)
+    a.lots.append(1)
+    all_orders = [a]
     while responce != '0':
         if responce == '1':
             order = Order(view.ticker())
@@ -58,9 +60,7 @@ if __name__ == '__main__':
             elif responce == '2':
                 all_orders[order_number].sell()
             elif responce == '0':
-                all_orders[order_number].close()
-
-
+                all_orders[order_number].close()# Пока не реализовано
 
 
         elif responce == '3':
