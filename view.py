@@ -1,6 +1,6 @@
 def main_action():
     responce = input('What we mast to do?\n'
-                     '1 - new\n'
+                     '1 - new.\n'
                      '2 - select order\n'
                      '3 - show all\n'
                      '0 - exit\n')
